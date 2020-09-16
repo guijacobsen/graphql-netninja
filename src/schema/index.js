@@ -10,19 +10,17 @@ const {
 
 // moked data
 let books = [
-  { name: "Livro 1", genre: "Genre 1", id: "1" },
-  { name: "Livro 2", genre: "Genre 2", id: "2" },
-  { name: "Livro 3", genre: "Genre 3", id: "3" },
-  { name: "Livro 4", genre: "Genre 4", id: 4 },
+  { name: "Livro 1", genre: "Genre 1", id: 1, authorId: 1 },
+  { name: "Livro 2", genre: "Genre 2", id: 2, authorId: 1 },
+  { name: "Livro 3", genre: "Genre 3", id: 3, authorId: 2 },
 ];
 let authors = [
   { name: "Author 1", age: 21, id: 1 },
   { name: "Author 2", age: 22, id: 2 },
   { name: "Author 3", age: 23, id: 3 },
-  { name: "Author 4", age: 24, id: 4 },
-  { name: "Author 5", age: 25, id: "5" },
 ];
 
+//
 const AuthorType = new GraphQLObjectType({
   name: "Author",
   fields: () => ({
@@ -38,9 +36,17 @@ const BookType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+    author: {
+      type: AuthorType,
+      resolve(parent, args) {
+        console.log("-- parent : ", parent);
+        return authors.filter((i) => i.id == parent.authorId)[0];
+      },
+    },
   }),
 });
 
+//
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
