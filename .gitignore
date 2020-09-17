@@ -1,5 +1,5 @@
-www/node_modules
-www/.env
+/www/node_modules
+/www/.env
 
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.

@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #efefef;
+  font-family: Arial, Helvetica, sans-serif;
+  body {
+    padding: 30px;
+    h1 {
+      font-size: 46px;
+    }
+
+    #book-list {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 30px 0;
+        li {
+          // flex: 1;
+          max-width: 24%;
+          min-width: 24%;
+          list-style: none;
+          border: 1px solid #000;
+          padding: 3px;
+          margin: 10px 0;
+        }
+      }
+    }
+
+    #add-book {
+      border: 1px solid #000;
+      padding: 10px 3px;
+      margin: 30px 0;
+
+      > div {
+        margin: 0 0 10px;
+      }
+    }
+    input,
+    select {
+      min-width: 200px;
+      height: 26px;
+      padding: 0 5px;
+    }
+
+    button {
+      min-width: 50px;
+      padding: 3px;
+      background: transparent;
+      border-radius: 4px;
+    }
+  }
+}
