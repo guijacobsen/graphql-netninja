@@ -9,7 +9,7 @@
 
 #### Run
 
-- Create a .env file at www directory
+- Create a `.env` file at www directory
 - Set the database configuration at www/.env file like a example
 
   ```
